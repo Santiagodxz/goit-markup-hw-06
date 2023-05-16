@@ -396,13 +396,61 @@
       </div>
     </footer>
 
-    <div class="backdrop is-hidden" data-modal>
+    <div class="backdrop " data-modal>
       <div class="backdrop-container">
         <button type="button" data-modal-close>
           <svg class="close" >
             <use href="./images/icons.svg#icon-x"></use>
           </svg>
         </button>
+
+        <!-- modal content -->
+        <h3 class="modal-title">Leave your information and we'll call you back</h3>
+
+        <form name="request-form" autocomplete="on" novalidate class="modal-form">
+          <label for="input-name">
+            Name
+          </label>
+
+          <div class="modal-form__input-group">
+            <input class="modal-form__input" type="text" name="name" id="input-name" />
+            <svg class="modal-form-input__icon">
+              <use href="./images/icons.svg#icon-person"></use>
+            </svg>
+          </div>
+
+          <label for="input-phone">
+            Telephone
+          </label>
+
+          <div class="modal-form__input-group">
+            <input class="modal-form__input" type="tel" name="telephone" id="input-phone" />
+            <svg class="modal-form-input__icon">
+              <use href="./images/icons.svg#icon-phone"></use>
+            </svg>
+          </div>
+
+          <label for="input-email">
+            E-mail
+          </label>
+
+          <div class="modal-form__input-group">
+            <input class="modal-form__input" type="email" name="e-mail" id="input-email" />
+            <svg class="modal-form-input__icon">
+              <use href="./images/icons.svg#icon-mail"></use>
+            </svg>
+          </div>
+          <label>
+            Comments
+            <textarea name="comments" rows="8" placeholder="Enter the text"></textarea> 
+          </label>
+          <div class="modal-form__checkbox">
+            <input type="checkbox" id="active">
+            <label for="active" class="checkbox-label" for="active">I agree with the newsletter and accept the Terms and Conditions</label>
+          </div>
+          <button class="modal-form__button" type="submit">Send</button>
+          
+        </form>
       </div>
     </div>
     <script src="./js/modal.js"></script>
