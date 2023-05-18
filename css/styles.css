@@ -451,6 +451,7 @@ header {
 }
 
 /* NEWSLETTER */
+
 .footer__newsletter {
   display: flex;
   align-items: center;
@@ -488,7 +489,8 @@ header {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.newsletter__button:hover .newsletter__button:focus {
+.newsletter__button:hover,
+ .newsletter__button:focus {
   background-color: var(--color-st-hover);
   width: 200px;
   height: 50px;
