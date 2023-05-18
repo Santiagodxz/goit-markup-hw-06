@@ -66,7 +66,7 @@ header {
 
 /* -- Header Section -- */
 
-.web-header .container {
+.header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,14 +75,15 @@ header {
   height: 80px;
 }
 
-.web-header .header-nav {
+/* Header nav */
+.header .header__nav {
   display: flex;
   align-items: center;
   gap: 50px;
 }
 
 .footer .logo,
-.header-nav .logo {
+.header__nav .logo {
   color: var(--color-logo);
   height: 31px;
   font-family: "Raleway";
@@ -93,7 +94,7 @@ header {
   outline: none;
 }
 
-.header-nav .link-nav {
+.header__link {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -103,11 +104,11 @@ header {
   position: relative;
 }
 
-.header-nav a.link-nav.selected {
+.header__link.selected {
   color: var(--color-logo);
 }
 
-.header-nav a.link-nav.selected::after {
+.header__link--selected::after {
   content: "";
   background-color: var(--color-logo);
   position: absolute;
@@ -117,47 +118,52 @@ header {
   height: 4px;
 }
 
-.link-nav:focus,
-.link-nav:hover {
+.header__link--selected:active {
   color: var(--color-logo);
 }
 
-.selected:active {
+.header__link:focus,
+.header__link:hover {
   color: var(--color-logo);
 }
 
-.web-header .header-contact {
-  display: flex;
-}
+/* Header contact */
 
-.web-header .header-contact .header-tel,
-.web-header .header-contact .header-mail {
+.header__contact {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
 }
 
-.web-header .header-contact .header-tel .icon,
-.web-header .header-contact .header-mail .icon {
-  width: 16px;
-  height: 12px;
-  stroke: var(--color-3);
-  cursor: pointer;
-}
-
-.web-header .header-contact .header-tel:focus .icon,
-.web-header .header-contact .header-tel:hover .icon,
-.web-header .header-contact .header-mail:focus .icon,
-.web-header .header-contact .header-mail:hover .icon {
-  stroke: var(--color-logo);
-}
-
-.contact-nav {
-  color: var(--color-3);
+.header__contact .contact__link {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.02em;
+  color: var(--color-2);
+  outline: none;
+  position: relative;
+}
+
+.header__contact .contact__icon {
+  stroke: var(--color-3);
+  cursor: pointer;
+}
+
+.contact__icon--email {
+  width: 16px;
+  height: 12px;
+}
+
+.contact__icon--smartphone {
+  width: 10px;
+  height: 16px;
+}
+
+.contact__link:hover,
+.contact__link:hover .contact__link--smartphone {
+  color: var(--color-logo);
+  fill: var(--color-logo);
 }
 
 /* -- Studio Section */
@@ -444,6 +450,61 @@ header {
   fill: var(--color-w);
 }
 
+/* NEWSLETTER */
+.footer__newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.newsletter__input {
+  outline: none;
+  height: 50px;
+  width: 358px;
+  color: var(--color-w);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #2f303a;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  padding-left: 16px;
+}
+
+.newsletter__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: var(--color-logo);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  color: var(--color-w);
+  font-size: 16px;
+  height: 50px;
+  width: 200px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 250ms ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.newsletter__button:hover .newsletter__button:focus {
+  background-color: var(--color-st-hover);
+  width: 200px;
+  height: 50px;
+  left: 738px;
+  top: 419px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newsletter__icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-w);
+}
+
 /* -- Portfolio */
 
 /* -- Buttons Section */
@@ -567,7 +628,6 @@ a .project-img-overlay p {
   justify-content: center;
   align-items: center;
 
-
   position: fixed;
   top: 0;
   left: 0;
@@ -588,7 +648,6 @@ a .project-img-overlay p {
   transform: translateY(200px);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 
 .backdrop button {
   display: flex;
@@ -622,7 +681,7 @@ a .project-img-overlay p {
   border-radius: 4px;
 }
 
-.backdrop-container label{
+.backdrop-container label {
   color: var(--color-3);
   font-size: 12px;
 }
@@ -639,7 +698,7 @@ a .project-img-overlay p {
   font-size: 12px;
   height: 40px;
   width: 100%;
-  border: 1px solid rgba(33,33,33, 0.2);
+  border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 40px;
   gap: 20px;
@@ -650,7 +709,7 @@ a .project-img-overlay p {
 
 .backdrop-container .modal-form__input:hover,
 .backdrop-container .modal-form__input:focus {
-  border: 1px solid var(--color-logo)
+  border: 1px solid var(--color-logo);
 }
 
 .backdrop-container .modal-form__input-group {
@@ -674,24 +733,24 @@ a .project-img-overlay p {
 }
 
 .backdrop-container textarea {
-display: block;
-outline: none;
-resize: none;
-width: 100%;
-height: 120px;
+  display: block;
+  outline: none;
+  resize: none;
+  width: 100%;
+  height: 120px;
 
-border: 1px solid rgba(33, 33, 33, 0.2);
-border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
 
-padding-left: 15px;
-padding-top: 16px;
+  padding-left: 15px;
+  padding-top: 16px;
 
-transition: 250ms ease;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop-container label textarea:hover,
-.backdrop-container label textarea:focus{
+.backdrop-container label textarea:focus {
   border: 1px solid var(--color-logo);
 }
 
@@ -721,7 +780,7 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-w);
   cursor: pointer;
   transition: 250ms ease;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop-container .modal-form__button:focus,
